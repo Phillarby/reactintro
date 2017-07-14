@@ -1,5 +1,5 @@
 module.exports = {
-    entry:'/Users/philiplarby/Projects/reacttutorial/public/src/client.js',
+    entry:['babel-polyfill','./src/client.js'],
     output:{
         path:"./",
         filename:'index.js'
@@ -8,5 +8,12 @@ module.exports = {
         inline:true,
         contentBase:'./public',
         port:3000
-    }
-}
+    },
+    module: {
+        loaders: [
+            {test:/\.js$/,
+            exclude:/node_modules/,
+        loader:'babel'}
+        ]
+    },
+};
